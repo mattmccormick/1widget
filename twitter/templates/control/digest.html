@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %} - Create New Digest{% endblock %}
+
+{% block main %}
+<h1>Create New Digest</h1>
+
+<form action="" method="post" id="form_digest">
+    {{ form.as_p }}
+    <input type="submit" value="Add Feeds &gt;&gt;" />
+</form>
+
+<div id="templates">
+	<h2>Default Templates</h2>
+	<div id="template_1" class="template_preview">
+		<h3>Twitter Default Template</h3>
+		<p>Your news will look the same as your Twitter feed</p>
+		<img src="{{ MEDIA_URL }}/img/template_twitter.gif" width="350" height="152" alt="Twitter Default Template" />
+	</div>
+	
+	<div id="template_2" class="template_preview">
+		<h3>Twitter Widget Template</h3>
+		<p>Your news will look like the Twitter widget</p>
+		<img src="{{ MEDIA_URL }}/img/template_widget.gif" width="350" height="93" alt="Twitter Widget Template" />
+	</div>
+	
+	<div id="template_3" class="template_preview">
+		<h3>News Template</h3>
+		<p>Your widget will blend in with this simple News format</p>
+		<img src="{{ MEDIA_URL }}/img/template_news.gif" width="350" height="113" alt="News Template" />
+	</div>
+	
+	<div id="template_4" class="template_preview">
+		<h3>Line Template</h3>
+		<p>Each news item appears on a single line</p>
+		<img src="{{ MEDIA_URL }}/img/template_line.gif" width="350" height="41" alt="Line Template" />
+	</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+$(document).ready(function() {
+	selectTemplate();
+	
+	$("#id_template").change(function() {
+		$(".template_preview").removeClass('selected');
+		selectTemplate();
+	});
+
+	function selectTemplate()
+	{
+		var template = $("#id_template").val();
+		$("#template_" + template).addClass('selected');
+	}	
+});
+</script>
+{% endblock %}

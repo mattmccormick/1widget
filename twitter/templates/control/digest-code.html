@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %} - Get Digest Code{% endblock %}
+
+{% block main %}
+<h1>Digest Code</h1>
+
+<p>The direct link to your digest is: <a href="{{ digest.get_digest_url }}">{{ digest.get_digest_url }}</a></p>
+
+<p>
+	Currently we have code examples for PHP, Django and jQuery.
+	You will need to open up the file you would like to place your code in and paste the relevant sample.
+	If you are using a different programming language or require help, please <a href="mailto:service@1widget.com">contact us</a>.
+</p>
+
+<p>Grab the correct code below to place on your website:</p>
+<h3>
+	<a href="#php">PHP</a> | 
+	<a href="#python">Python</a> | 
+	<a href="#javascript">JavaScript</a> |
+	<a href="#html">HTML</a>
+</h3>
+<a name="php"></a><h2>PHP</h2>
+
+<pre class="code">
+&lt;?php
+$ch = curl_init('{{ digest.get_digest_url }}');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
+$out = curl_exec($ch);
+curl_close($ch);
+echo $out;
+?&gt;
+</pre>
+
+<a name="python"></a><h2>Django/Python</h2>
+
+<h3>View method:</h3>
+
+<pre class="code">
+f = urllib2.urlopen('{{ digest.get_digest_url }}')
+return render_to_response('TEMPLATE_FILE.html', {'widget': f.read()}, 
+                          context_instance=RequestContext(request))
+</pre>
+
+<h3>Template File:</h3>
+
+<pre class="code">
+{% templatetag openvariable %}widget|safe{% templatetag closevariable %}
+</pre>
+
+<a name="javascript"></a><h2>jQuery/Javascript</h2>
+
+<p>If your site already uses jQuery, you don't need to copy the first line</p>
+
+<pre class="code">
+&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"&gt;&lt;/script&gt;
+&lt;div id="my_widget"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+$(document).ready(function() {
+	$("#my_widget").load('{{ digest.get_digest_url }}');
+});
+&lt;/script&gt;
+</pre>
+
+<a name="html"></a><h2>HTML/iframe</h2>
+
+<p>May not work with all browsers</p>
+
+<pre class="code">
+&lt;iframe src="{{ digest.get_digest_url }}">&lt;/iframe>
+</pre>
+{% endblock %}

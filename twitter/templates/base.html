@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Twitter RSS Feeds, Feed, Reader - 1widget{% block title %}{% endblock %}</title>
+    <meta name="description" content="Publish Twitter & RSS Feeds to Your Website with 1widget. You can place multiple feeds into one Digest and then include the Digest on your website or blog." />
+    <meta name="keywords" content="rss feeds twitter, rss feed twitter, rss reader twitter, " />
+
+    
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/reset.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}/css/blueprint/src/forms.css" type="text/css" media="screen, projection" />
+    <link type="text/css" rel="stylesheet" href="{{ MEDIA_URL }}/css/style.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    {% block head %}{% endblock %}
+</head>
+<body>
+	<div id="container">
+	    <div id="header">
+	    	<a href="{% url index %}"><img src="{{ MEDIA_URL }}/img/logo.png" id="logo" alt="1widget" /></a>
+	        {% if user.is_authenticated %}
+        	<ul>
+        		<li>Digests
+        			<ul>
+        				<li><a href="{% url control %}">Manage Digests</a></li>
+        				<li><a href="{% url digest-new %}">Add New Digest</a></li>
+        			</ul>
+        		</li>
+        		<li>Templates
+		        	<ul>
+		        		<li><a href="{% url templates %}">Manage Templates</a></li>
+						<li><a href="{% url template-new %}">Add New Template</a></li>
+		        	</ul>
+        		</li>
+        		<li>Account
+        			<ul>
+			        	<li><a href="{% url password %}">Change Password</a></li>
+						<li><a href="{% url page 'pricing' %}">Upgrade Package</a></li>
+						{% ifnotequal user.groups.all.0.id 1 %}
+						<li><a href="{% url unsubscribe %}">Cancel Subscription</a></li>
+						{% endifnotequal %}
+        			</ul>
+        		</li>
+        		<li><a href="{% url page 'faq' %}">FAQ</a></li>
+        		<li><a href="{% url logout %}">Logout</a></li>
+        	</ul>
+	        {% else %}
+	        <ul>
+	        	<li><a href="{% url page 'faq' %}">FAQ</a></li>
+	        	<li><a href="{% url page 'pricing' %}">Pricing</a></li>
+	        	<li><a href="{% url login %}">Login</a></li>
+	        	<li><a href="{% url register %}">Sign up</a></li>
+	        </ul>
+	        {% endif %}
+	    </div>
+	    <div id="main">
+	    	{% if message %}
+	    	<div class="message">{{ message|safe }}</div>
+	    	{% endif %}
+	    	
+	        {% block main %}{% endblock %}
+	    </div>
+	    
+	    <div id="footer">
+	    	<p>
+		    	<a href="{% url page 'terms' %}">Terms of Service</a> |
+		    	<a href="{% url page 'privacy' %}">Privacy Policy</a> |
+		    	<a href="mailto:service@1widget.com">Email Us</a>
+		    	<BR>
+		    	<a href="http://www.1widget.com/pricing">Pricing for RSS Reader Twitter</a> | 
+		    	<a href="http://www.1widget.com/faq">FAQ about RSS Reader Twitter</a> |
+		    	<a href="http://www.1widget.com/login">Login to use RSS Reader Twitter</a> |
+		    	<a href="http://www.1widget.com/register">Register for RSS Reader Twitter</a> |
+		    	
+		    </p>
+		    <p>Copyright &copy; 2010 1widget</p>
+	    </div>
+	</div>
+    {% block javascript %}{% endblock %}
+    <script type="text/javascript" src="{{ MEDIA_URL }}/js/disable_submit.js"></script>
+    <script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-12701740-1");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>
+</body>
+</html>

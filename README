@@ -1,0 +1,10 @@
+1widget was developed by Matt McCormick and hosted at http://www.1widget.com before being shut down due to a lack of people interested in the service.
+
+It allowed users to combine Twitter feeds with RSS feeds and display the most recent feeds on their own website.
+
+This was my largest Python/Django project to date taking about six weeks of application developemnt time.  I was pretty new to Python/Django at that time and this project was also a chance for me to learn more about the language and framework.
+
+I am open-sourcing it to highlight my Python development experience and in case anyone may find it helpful.
+
+Matt McCormick
+http://mattmccormick.ca

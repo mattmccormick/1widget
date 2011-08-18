@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %} - Pricing{% endblock %}
+
+{% block main %}
+<h1>Pricing</h1>
+
+{% if user.is_authenticated %}
+<p>You are currently signed up for the {{ groupinfo }} package</p>
+{% else %}
+<p>
+	1widget offers four packages to choose from depending on your needs.
+</p>
+
+<p>
+	Try out the Free package to get started.
+	If you choose to upgrade later, your digest, feeds and settings will remain.
+</p>
+<p>
+	Upgrade to our paid options if you have the need for multiple digests or run a traffic-heavy site.
+	The paid packages offer full template customization so the news will blend seamlessly into your site's design.
+	The 1widget logo is hidden for paid packages.  
+</p>
+
+<p>
+	If you run a large-site and the Premium Package does not fit your needs, 
+	<a href="mailto:service@1widget.com">contact us</a> with your requirements and we will create a customized package for you. 
+</p>
+{% endif %}
+
+<table id="pricing">
+	<thead>
+		<tr>
+			<th></th>
+			<th>Free</th>
+			<th>Small Site Package</th>
+			<th>Multi Site Package</th>
+			<th>Premium Package</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="highlight">
+			<th>Logo?</th>
+			<td>1widget Logo</td>
+			<td>No Logo</td>
+			<td>No Logo</td>
+			<td>No Logo</td>
+		</tr>
+		<tr>
+			<th>Ads?</th>
+			<td>Ad supported</td>
+			<td>Ad-free</td>
+			<td>Ad-free</td>
+			<td>Ad-free</td>
+		</tr>
+		<tr class="highlight">
+			<th># of Digests</th>
+			<td>1</td>
+			<td>5</td>
+			<td>25</td>
+			<td>100</td>
+		</tr>
+		<tr>
+			<th>Feeds per Digest</th>
+			<td>5</td>
+			<td>25</td>
+			<td>100</td>
+			<td>unlimited</td>
+		</tr>
+		<tr class="highlight">
+			<th>Update Frequency</th>
+			<td>Daily</td>
+			<td>4 hours</td>
+			<td>2 hours</td>
+			<td>1 hour</td>
+		</tr>
+		<tr>
+			<th>Design Customization</th>
+			<td>Templates Only</td>
+			<td>Full Customization</td>
+			<td>Full Customization</td>
+			<td>Full Customization</td>
+		</tr>
+		<tr class="highlight">
+			<th>Views per day</th>
+			<td>1000</td>
+			<td>5000</td>
+			<td>25,000</td>
+			<td>100,000</td>
+		</tr>
+		<tr>
+			<th>Price</th>
+			<td>Free</td>
+			<td>$10/month</td>
+			<td>$40/month</td>
+			<td>$150/month</td>
+		</tr>
+	</tbody>
+	<tfoot>
+		{% if user.is_authenticated %}
+		{% if groupinfo.is_free %}
+		<tr>
+			<th>Select Package</th>
+			<td>
+				<form method="get" action="{% url control %}">
+					<input type="submit" value="Free" />
+				</form>
+			</td>
+			<td>
+			<!-- 
+<form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="1091096">
+<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>  -->
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<div>
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="hosted_button_id" value="10702370">
+						<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">					</div>
+				</form>
+			</td>
+			<td>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<div>
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input type="hidden" name="hosted_button_id" value="10702394" />
+						<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="Signup for Multi-Site Package" />
+						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+					</div>
+				</form>			
+			</td>
+			<td>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+					<div>
+						<input type="hidden" name="cmd" value="_s-xclick" />
+						<input type="hidden" name="hosted_button_id" value="10702403" />
+						<input type="image" src="https://www.paypal.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="Signup for Premium Package" />
+						<img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+					</div>
+				</form>
+			</td>
+		</tr>
+		{% else %}
+		<tr>
+			<td colspan="5">
+				<p class="message center">
+					<a href="mailto:service@1widget.com">Contact Us</a> 
+					if you would like to upgrade/downgrade your package
+				</p>
+			</td>
+		</tr>
+		{% endif %}
+		{% else %}
+		<tr>
+			<td colspan="5">
+				<p class="start">
+					<a href="{% url register %}">Get Started <span class="darkblue">Now</span></a>
+					<img src="{{ MEDIA_URL }}/img/arrow_orange.gif" class="arrow" alt="Get Started Now" />
+				</p>
+			</td>
+		</tr>
+		{% endif %}
+	</tfoot>
+</table>
+
+{% if signup %}
+<!-- Google Code for Free Signup Conversion Page -->
+<script type="text/javascript">
+<!--
+var google_conversion_id = 1039687194;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+
+var google_conversion_color = "ffffff";
+var google_conversion_label = "mEzqCJLinAEQmrzh7wM";
+var google_conversion_value = 0;
+if (1.00) {
+  google_conversion_value = 1.00;
+}
+//-->
+
+</script>
+<script type="text/javascript" src="http://www.googleadservices.com/pagead/conversion.js">
+</script>
+
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="http://www.googleadservices.com/pagead/conversion/1039687194/?value=1.00&amp;label=mEzqCJLinAEQmrzh7wM&amp;guid=ON&amp;script=0"/>
+
+</div>
+</noscript>
+{% endif %}
+{% endblock %}

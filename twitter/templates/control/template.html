@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block head %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/ckeditor.js"></script>
+{% endblock %}
+
+{% block title %} - Edit Template{% endblock %}
+
+{% block main %}
+<h1>Edit Template</h1>
+
+<strong>Getting Started Tips:</strong> <a href="" id="toggle">(show)</a>
+<ul id="tips">
+	<li>Click the Template Icon <img src="{{ MEDIA_URL }}/img/icon_template.png" width="36" height="34" alt="Template" /> 
+	in the top-left to select from a series of templates.</li>
+	<li>If you know HTML &amp; CSS:
+		<ul>
+			<li>Click <img src="{{ MEDIA_URL }}/img/icon_source.png" width="78" height="34" alt="Source" /> to have more control over the HTML</li>
+			<li>You can places CSS directly in HTML tags or between <span class="code">&lt;style type="text/css"&gt;&lt;/style&gt;</span></li>
+			<li>The <span class="code">&lt;style&gt;</span> tags must go at the top before your template</li>
+		</ul>
+	</li>
+</ul>
+
+<form action="" method="post">
+    {{ form.as_p }}
+    <p><input type="submit" value="Update Template" /></p>
+</form>
+
+<table id="codes">
+	<thead>
+		<tr>
+			<th>Template Code</th>
+			<th>Display</th>
+			<th>Template Code</th>
+			<th>Display</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>%ICON%</td>
+			<td>
+				Inserts an icon denoting the type of feed: 
+				<img src="{{ MEDIA_URL }}/img/twitter.gif" class="icon" alt="Twitter" /> or
+				<img src="{{ MEDIA_URL }}/img/rss.gif" class="icon" alt="RSS" /> 
+			</td>
+			<td>%AGODAY%</td>
+			<td>The Tweet date in 'ago' time format up to 24 hours. eg. '6 hours ago'</td>
+		</tr>
+		<tr>
+			<td>%IMAGE%</td>
+			<td>The Image URL of the Twitter User or RSS Feed</td>
+			<td>%YYYY%</td>
+			<td>The full year eg. 2010</td>
+		</tr>
+		<tr>
+			<td>%TEXT%</td>
+			<td>The text of the Tweet or RSS feed</td>
+			<td>%YY%</td>
+			<td>The shoreted year eg. 10</td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+			<td>%MM%</td>
+			<td>The month as a number</td>
+		</tr>
+		<tr>
+			<td>%LINK%</td>
+			<td>The URL to the Feed</td>
+			<td>%MONTHFULL%</td>
+			<td>The full name of the month</td>
+		</tr>
+		<tr>
+			<td>%SOURCE%</td>
+			<td>The source of the feed - the Twitter Username or RSS website</td>
+			<td>%MON%</td>
+			<td>The shortened name of the month</td>
+		</tr>
+		<tr>
+			<td>%SOURCE_DESCRIPTION%</td>
+			<td>The description of the source</td>
+			<td>%DD%</td>
+			<td>The day of the month - 2 digits</td>
+		</tr>
+		<tr>
+			<td>%SOURCE_URL%</td>
+			<td>URL to the source</td>
+			<td>%D%</td>
+			<td>The day of the month - 1 or 2 digits</td>
+		</tr>
+		<tr>
+			<td>%RSS_CONTENT%</td>
+			<td>The full content of the RSS feed - <img src="{{ MEDIA_URL }}/img/rss.gif" class="icon" alt="RSS" /> only</td>
+			<td>%HH24%</td>
+			<td>The hour in 24 hour time - 2 digits</td>
+		</tr>
+		<tr>
+			<td>%RSS_TITLE%</td>
+			<td>The title of the RSS feed - <img src="{{ MEDIA_URL }}/img/rss.gif" class="icon" alt="RSS" /> only</td>
+			<td>%HH12%</td>
+			<td>The hour in 12 hour time - 2 digits</td>
+		</tr>
+		<tr>
+			<td>%TWITTER_FULLNAME%</td>
+			<td>The User's full name - <img src="{{ MEDIA_URL }}/img/twitter.gif" class="icon" alt="Twitter" /> only</td>
+			<td>%H24%</td>
+			<td>The hour in 24 hour time - 1 or 2 digits</td>
+		</tr>
+		<tr>
+			<td>%TWITTER_LOCATION%</td>
+			<td>The User's location - <img src="{{ MEDIA_URL }}/img/twitter.gif" class="icon" alt="Twitter" /> only</td>
+			<td>%H12%</td>
+			<td>The hour in 12 hour time - 1 or 2 digits</td>
+		</tr>
+		<tr>
+			<td>%TWITTER_ID%</td>
+			<td>The Tweet ID - <img src="{{ MEDIA_URL }}/img/twitter.gif" class="icon" alt="Twitter" /> only</td>
+			<td>%MIN%</td>
+			<td>The minutes</td>
+		</tr>
+		<tr>
+			<td>%TWITTER_SOURCE%</td>
+			<td>
+				The source of where the tweet was posted from (eg. web, mobile, bit.ly, etc.) 
+				- <img src="{{ MEDIA_URL }}/img/twitter.gif" class="icon" alt="Twitter" /> only
+			</td>
+			<td>%SS%</td>
+			<td>The seconds</td>
+		</tr>
+		<tr>
+			<td colspan="2"></td>
+			<td>%AMPM%</td>
+			<td>Prints 'am' or 'pm'</td>
+		</tr>
+	</tbody>
+</table>
+
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/template.js"></script>
+
+{% endblock %}

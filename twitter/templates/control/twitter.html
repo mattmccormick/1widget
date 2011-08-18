@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} - Twitter Authorization{% endblock %}
+
+{% block main %}
+<h1>Twitter Authorization</h1>
+
+<p>
+	To add Twitter Feeds to your Digest, you must authorize 1widget through your Twitter account.
+	1widget only requests <strong>read</strong> access.
+	We cannot post anything to your Twitter account.
+	As Twitter imposes limits on the amount of feeds that one user can receive per hour, we require your authorization to request feeds.
+</p>
+
+<p><a href="{% url twitter_oauth_auth %}">Proceed to Twitter to Authorize</a></p>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %} - Templates{% endblock %}
+
+{% block main %}
+<h1>Templates</h1>
+
+<p>
+	You are currently signed up with the Free package.
+	To create and edit your own templates, please 
+	<a href="{% url page 'pricing' %}">upgrade your package</a>.
+</p>
+
+{% endblock %}

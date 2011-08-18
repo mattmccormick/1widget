@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} - Control Panel{% endblock %}
+
+{% block main %}
+<h1>Manage Digests</h1>
+
+{% ifequal digests.all.count 0 %}
+<p>
+	You currently have no digests.  
+	Click Digests -&gt; Add New Digest on the top bar to get started!
+</p>
+
+<p>
+	A Digest is a collection of RSS and/or Twitter Feeds. 
+	Add multiple feeds to your Digest and you can display the most recent ones on your website or blog. 
+</p>
+{% else %}
+<p>
+	You are using {{ digests.all.count }} 
+	out of {{ groupinfo.get_digests_limit }} 
+	Digest{{ groupinfo.get_digests_limit|pluralize }}
+</p>
+{% endifequal %}
+
+<table>
+	<thead>
+		<tr>
+			<th>Digest Name</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for digest in digests %}
+		<tr>
+			<th>{{ digest.name }}</th>
+			<td><a href="{% url edit digest.id %}">Edit Settings</a></td>
+			<td><a href="{% url digest-feeds digest.id %}">Manage Feeds</a></td>
+			<td><a href="{% url digest-code digest.id %}">Grab Code</a></td>
+			<td><a href="{% url digest-delete digest.id %}">Delete</a></td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

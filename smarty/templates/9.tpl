@@ -1,0 +1,1 @@
+<div id="widget">{section name=i loop=$feeds}IMAGE%%SOURCE%%TEXT%{/section}</div>

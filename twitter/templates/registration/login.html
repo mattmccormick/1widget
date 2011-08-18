@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %} - Login{% endblock %}
+
+{% block main %}
+<h1>Login</h1>
+
+<p>Login to your 1widget account</p>
+
+<form action="" method="post">
+    {{ form.as_p }}
+    <input type="submit" value="Login" />
+</form>
+
+<p><a href="{% url reset %}">Forgot your password?</a></p>
+{% endblock %}

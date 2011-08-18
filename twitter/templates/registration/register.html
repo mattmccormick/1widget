@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} - Sign Up{% endblock %}
+
+{% block main %}
+<h1>Sign Up</h1>
+
+<p>
+	Thanks for choosing to signup with 1widget.  
+	Complete the form and you will be setting up your digest within minutes.
+</p>
+
+<form action="" method="post">
+    {{ form.as_p }}
+    <input type="submit" value="Create Account" />
+</form>
+{% endblock %}

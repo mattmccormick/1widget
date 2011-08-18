@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %} - Frequently Asked Questions{% endblock %}
+
+{% block main %}
+<h1>FAQ - Frequently Asked Questions</h1>
+
+<h3>
+	<a href="#payment">Payment</a> |
+	<a href="#digest">Digests</a> |  
+	<a href="#twitter">Twitter</a> | 
+	<a href="#other">Other</a>
+</h3>
+
+<a name="payment"></a><h2>Payment</h2>
+
+<h3>How Do I Pay?</h3>
+
+<p class="answer">
+	While logged into your account, go to 
+	<strong>Account -&gt; Upgrade Package</strong>. 
+	Then click on the <strong>Subscribe</strong> button for the package you 
+	would like to subscribe to.
+</p>
+
+<h3>I have some concerns about paying...</h3>
+
+<p class="answer">
+	Payment is handled through Paypal - one of the leaders in Online Payment Processing.
+	All credit card/bank information is sent through Paypal.
+	We do not have access to any of your credit card numbers or other financial information.
+	In addition, you will only be billed monthly and can cancel anytime before the next monthly payment.
+</p>
+
+<a name="digest"></a><h2>Digests</h2>
+
+<h3>What is a Digest?</h3>
+
+<p class="answer">
+	A Digest is a collection of RSS and/or Twitter Feeds.
+	You can place multiple feeds into one Digest and then include the Digest on 
+	your website or blog.<br /><br />
+	
+	For example, if you run a blog about Cars, you may want to add a few 
+	relevant Twitter users and a few Car RSS feeds to one digest.
+	They will all be included but only the most recent news items will appear on
+	your site. 
+</p>
+
+<a name="twitter"></a><h2>Twitter</h2>
+
+<h3>Why Do I Need to Give You My Twitter Account Authorization Before Adding Twitter Feeds?</h3>
+
+<p class="answer">
+	We only ask for read access to your account.
+	We cannot post or change anything on your account.
+	We ask for authorization because Twitter currently only allows 3rd party 
+	websites to make 150 requests per hour to their service. 
+	If we didn't ask for Twitter authorisation, we could only get 150 Twitter 
+	feeds per hour.  
+	We would quickly exhaust this limit with many users wanting to add Twitter 
+	feeds to their digest.<br /><br />
+
+	If we make requests from each user, then we can get up to 150 feeds per hour 
+	per <em>user</em>.<br /><br />
+	
+	To learn more about Twitter's Rate Limiting see 
+	<a href="http://apiwiki.twitter.com/Rate-limiting">http://apiwiki.twitter.com/Rate-limiting</a>
+</p>
+
+<a name="other"></a><h2>Other</h2>
+
+<h3>I have other questions not mentioned here...</h3>
+
+<p class="answer">
+	Please <a href="mailto:service@1widget.com">send us an email</a>
+</p>
+
+{% endblock %}

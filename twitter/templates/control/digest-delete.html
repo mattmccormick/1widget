@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} - Delete Digest{% endblock %}
+
+{% block main %}
+<h1>Delete Digest</h1>
+
+<p>Are you sure you want to delete the following digest:</p>
+
+<ul>
+	<li>{{ digest }}</li>
+</ul>
+
+<form action="" method="post">
+    <input type="submit" value="Yes, Delete" />
+</form>
+{% endblock %}

@@ -1,0 +1,18 @@
+Constant Contact Labs, Python Client Library
+Copyright 1996-2009 Constant Contact, Inc.
+
+Python Client Library was developed by
+Constant Contact Labs (http://www.ctctlabs.com/).
+
+Python Client Library uses python-rest-client
+(http://code.google.com/p/python-rest-client/),
+developed by Benjamin O'Steen. The python-rest-client
+is used in accordance with the GPL license 
+(http://www.gnu.org/licenses/gpl.txt).
+    
+Python Client Library uses a modified version of httplib2. The
+original code can be found here:
+    http://code.google.com/p/httplib2/
+httplib2 is used in accordance with the MIT license
+(http://www.opensource.org/licenses/mit-license.php).
+    

@@ -1,0 +1,23 @@
+from django.conf.urls.defaults import patterns, url
+
+urlpatterns = patterns('',
+    url(r'^$','twitter.control.views.index', name='control'),
+    url(r'^new$', 'twitter.control.views.new', name="digest-new"),
+    url(r'^(?P<id>\d+)/edit$', 'twitter.control.views.edit', name="edit"),
+    url(r'^templates$', 'twitter.control.views.templates', name='templates'),
+    url(r'^template/new$', 'twitter.control.views.template_new', name='template-new'),
+    url(r'^template/(?P<template_id>\d+)$', 'twitter.control.views.template_edit', name='template-edit'),
+    url(r'^(?P<id>\d+)/feeds$', 'twitter.control.views.feeds', name="digest-feeds"),
+    url(r'^(?P<id>\d+)/code$', 'twitter.control.views.code', name='digest-code'),
+    url(r'^(?P<id>\d+)/delete$', 'twitter.control.views.delete', name='digest-delete'),
+    url(r'^(?P<id>\d+)/feed/delete$', 'twitter.control.views.feed_delete', name='feed-delete'),
+    url(r'^(?P<id>\d+)/rss/delete$', 'twitter.control.views.rss_delete', name='rss-delete'),
+    url(r'^password$', 'django.contrib.auth.views.password_change', name='password'),
+    url(r'^password-update$', 'django.contrib.auth.views.password_change_done', name='password-update'),
+    url(r'^package-template$', 'twitter.control.views.package_template', name='package-template'),
+    url(r'^upgrade$', 'twitter.control.views.upgrade', name='upgrade'),
+    url(r'^upgrade_success$', 'twitter.control.views.upgrade_success'),
+    url(r'^upgrade_failure$', 'twitter.control.views.upgrade_failure'),
+    url(r'^unsubscribe$', 'twitter.control.views.unsubscribe', name='unsubscribe'),
+    url(r'^twitter$', 'twitter.control.views.twitter'),
+)

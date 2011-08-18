@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %} - Publish RSS and Twitter News to Your Website!{% endblock %}
+
+{% block head %}
+<script type="text/javascript" src="{{ MEDIA_URL }}/js/jquery.cycle.all.min.js"></script>
+{% endblock %}
+
+{% block main %}
+<h1>Publish Twitter & RSS Feeds to Your Website!</h1>
+
+<h2>Do you manage websites and want to display updating news for your visitors?</h2>
+
+<ul class="index">
+	<li>Publish both <span class="rss">RSS</span> and <span class="twitter">Twitter</span> Feeds</li>
+	<li>No Programming Knowledge Required!</li>
+</ul>
+<ul class="index">
+	<li>Dynamic Content updates automatically on your site</li>
+	<li>Takes only minutes to setup</li>
+</ul>
+
+<div id="steps">
+	<div class="holder">
+		<div class="left">
+			<img src="{{ MEDIA_URL }}/img/1.gif" class="number" alt="1" />
+			<div class="text">
+				<h2>Add RSS <span class="orange">and</span> Twitter Feeds!</h2>
+				<p>You can combine multiple RSS and Twitter feeds into one digest or use only Twitter or RSS if you prefer</p>
+			</div>
+			<img src="{{ MEDIA_URL }}/img/1addfeeds.gif" width="312" height=139" alt="Add Multiple RSS and Twitter Feeds" class="box_image" />
+		</div>
+		<img src="{{ MEDIA_URL }}/img/1screenshot.gif" height="164" alt="Add Multiple RSS and Twitter Feeds" class="screenshot" /> 
+	</div>
+	
+	<div class="holder">
+		<div class="left">
+			<img src="{{ MEDIA_URL }}/img/2.gif" class="number" alt="2" />
+			<div class="text">
+				<h2>Customize Look and Feel</h2>
+				<p>Choose from pre-designed templates or create your own to customize the widget to fit seamlessly into your site's design</p>
+			</div>
+			<img src="{{ MEDIA_URL }}/img/2design.gif" width="284" height="169" alt="Customize design of RSS and Twitter feeds" class="box_image" />
+		</div>
+		<img src="{{ MEDIA_URL }}/img/2screenshot.gif" height="186" alt="Customize design of RSS and Twitter feeds" class="screenshot" />
+	</div>
+	
+	<div class="holder">
+		<div class="left">
+			<img src="{{ MEDIA_URL }}/img/3.gif" class="number" alt="3" />
+			<div class="text">
+				<h2>Insert on your website!</h2>
+				<p>Place code into your site and start receiving updated RSS and Twitter feeds 24 hours a day</p>
+			</div>
+			<img src="{{ MEDIA_URL }}/img/3insert.gif" width="320" height="142" alt="Insert multiple RSS and Twitter feeds into your website" class="box_image" />
+		</div>
+		<img src="{{ MEDIA_URL }}/img/3screenshot.gif" height="260" alt="Insert code for digest feeds" class="screenshot" style="margin-top: 0;" />
+	</div>
+</div>
+
+<p class="start">
+	<a href="{% url register %}">Get Started <span class="darkblue">Now</span></a>
+	<img src="{{ MEDIA_URL }}/img/arrow_orange.gif" class="arrow" alt="Get Started Now" />
+</p>
+
+<div id="demo">
+	<div id="demo_info">
+		<h2 class="arrow">1widget Demo</h2>
+		<h3>This is how your 1widget could look installed on your website</h3>
+		
+		<ul>
+			<li>Pick the RSS and Twitter feeds of your choice.</li>
+		
+			<li>You can have all the feeds from your company in one place.</li>
+			
+			<li>Let website visitors follow the same feeds as you.</li>
+		</ul>
+		
+	</div>
+	
+	<div id="boxall">
+		<div id="boxtop"></div>
+		<div id="boxmid">
+			<img src="{{ MEDIA_URL }}/img/logo_sm.png" width="120" height="38" alt="1widget" />
+			{{ demo|safe }}
+		</div>
+		<div id="boxbot"></div>
+	</div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#steps").cycle({
+		fx: 'fade',
+		timeout: 7500
+	});
+});
+</script>
+{% endblock %}

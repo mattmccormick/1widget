@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %} - Manage Feeds{% endblock %}
+
+{% block main %}
+<h1>Manage Feeds</h1>
+
+<p>Digest contains <strong>{{ total }}</strong> out of {{ groupinfo.get_feeds_limit_str }} feeds</p>
+
+<div class="half">
+	<h2>Twitter</h2>
+	<p>Manage the Twitter Feeds in your digest</p>
+	{% ifnotequal digest.feeds.all.count 0 %}
+	<table>
+		<tbody>
+		{% for feed in digest.feeds.all %}
+	        <tr>
+	            <td>{{ feed }}</td>
+	            <td>
+	            	<form method="post" action="{% url feed-delete digest.id %}">
+	            		<input type="hidden" name="id" value="{{ feed.id }}" />
+	            		<input type="submit" value="Remove" />
+	            	</form>
+				</td>
+	        </tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endifnotequal %}
+	
+	<form action="" method="post">
+	    {{ form_twitter.as_p }}
+	    <input type="submit" value="Add Twitter Feed" />
+	</form>
+</div>
+
+<div class="half">
+	<h2>RSS</h2>
+	<p>Manage the RSS Feeds in your digest</p>
+	{% ifnotequal digest.rss.all.count 0 %}
+	<table>
+		<tbody>
+		{% for rss in digest.rss.all %}
+			<tr>
+				<td>{{ rss }}</td>
+				<td>
+					<form method="post" action="{% url rss-delete digest.id %}">
+						<input type="hidden" name="id" value="{{ rss.id }}" />
+						<input type="submit" value="Remove" />
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endifnotequal %}
+	
+	<form action="" method="post">
+		{{ form_rss.as_p }}
+		<input type="submit" value="Add RSS Feed" />
+	</form>
+</div>
+
+<p style="clear: both;"><a href="{% url digest-code digest.id %}">Get the code for this Digest to place on your website &gt;&gt;</a></p>
+
+<p><a href="{% url control %}">Go back to List of Digests</a></p>
+{% endblock %}
